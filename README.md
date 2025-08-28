@@ -51,16 +51,17 @@ If you are able to compile your code successfully you should see something like 
 4. If your make check was unsuccesfull, you can clean your attempt by running `make clean`, review your implementation and repeat the previous steps.
 
 # Solution
-## Understanding
-Describe what you understood about the problem.
+## Understanding :
+I understood that we're trying to decode the GPS data from a ublox-GNSS receiver. 
+Receiver outputs UBX binary signals. The task is to parse the UBX message buffer correctly in C++, extract the raw values, and then convert them into meaningful GPS coordinates (lat, lon in degrees, height in meters).
 
-## Thought Process
-After understanding the problem, describe how you decided to proceed towards solving the question.
+## Thought Process :
+Understand the UBX message format, check data types and scaling factors, match the message of the UBX Class and ID fields correctly, change raw values to real units, run the test with known UBX logs and confirm the lat, lon matches the expected coordinates. Debug it.
 
-## Implementation
-How did you decide to implement your solution.
-
+## Implementation :
 Mention the details, such as the path planning & odometry how you tested it.
+
+I decided the implementation by reading the protocol spec, matching offsets with fields, correcting logical mistakes, and ensuring unit conversions. By this I somewhat understand the problem statement but can't figure out the code which I have to do. So I just wrote my understanding.
 
 # Google Form
 [Link to Repo Submission](https://docs.google.com/forms/d/e/1FAIpQLSdlVJ2LzP8wUOATRD804zDVL611rwwGMO1y_ecYu5aoV5YQfw/viewform)
