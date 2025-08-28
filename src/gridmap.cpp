@@ -1,6 +1,8 @@
 #include "gridmap.h"
 #include <iostream>
 
+
+
 using namespace std;
 
 Gridmapper::Gridmapper(GPS origin, double cellsize, int rows, int cols)
@@ -23,7 +25,8 @@ pair<int, int> Gridmapper::gpstogrid(const GPS &point) const {
 
 const vector<vector<bool>> &Gridmapper::getGrid() const { return grid; }
 
-double Gridmapper::deg2rad(double deg) { return deg * M_PI / 180.0; }
+double Gridmapper::deg2rad(double deg) { return deg *3.14159265358979323846
+  / 180.0; }
 
 bool Gridmapper::isvalid(int row, int col) const {
   return (row >= 0 && row < rows && col >= 0 && col < cols);

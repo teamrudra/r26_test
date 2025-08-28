@@ -7,11 +7,13 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 // Helper to convert angle to unit direction
 pair<double, double> directionFromAngle(double angle_deg) {
-  double rad = angle_deg * M_PI / 180.0;
+  double rad = angle_deg * 3.14159265358979323846
+ / 180.0;
   return {cos(rad), sin(rad)};
 }
 
