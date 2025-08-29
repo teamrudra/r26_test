@@ -10,13 +10,13 @@
 using namespace std;
 
 static int NAV_POSLLH(uint8_t *buffer, classId *gps) {
-  memcpy(&gps->iTOW, buffer, 4);
-  memcpy(&gps->lon, buffer, 4);
-  memcpy(&gps->lat, buffer, 4);
-  memcpy(&gps->height, buffer + 12, 4);
-  memcpy(&gps->hMSL, buffer + 16, 4);
-  memcpy(&gps->hAcc, buffer + 20, 4);
-  memcpy(&gps->vAcc, buffer + 24, 4);
+memcpy(&gps->iTOW, buffer, 4);
+memcpy(&gps->lon, buffer + 4, 4);
+memcpy(&gps->lat, buffer + 8, 4);
+memcpy(&gps->height, buffer + 12, 4);
+memcpy(&gps->hMSL, buffer + 16, 4);
+memcpy(&gps->hAcc, buffer + 20, 4);
+memcpy(&gps->vAcc, buffer + 24, 4);
   return 0;
 }
 
@@ -32,7 +32,7 @@ static vector<uint8_t> hexToBytes(const string &rawHex) {
 
 int decodeUBX(uint8_t *buffer, classId *gps) {
   // buffer points at class field
-  if (buffer[30] == 0x01 && buffer[32] == 0x02) { // Class = NAV, ID = POSLLH
+  if (buffer[2] == 0x01 && buffer[3] == 0x02) { // Class = NAV, ID = POSLLH
     return NAV_POSLLH(buffer + 4, gps);         // skip length
   }
   return 1;
